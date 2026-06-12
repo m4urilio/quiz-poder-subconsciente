@@ -210,6 +210,19 @@ export default function App() {
     setAnswers([])
   }
 
+  function handleBack() {
+    if (screen === 'quiz' && currentQ > 0) {
+      setCurrentQ(currentQ - 1)
+      setAnswers(answers.slice(0, -1))
+      setSelectedOption(null)
+    } else {
+      setScreen('intro')
+      setCurrentQ(0)
+      setAnswers([])
+      setSelectedOption(null)
+    }
+  }
+
   function handleAnswer(optionIndex) {
     if (selectedOption !== null) return
     setSelectedOption(optionIndex)
@@ -309,6 +322,17 @@ export default function App() {
       {/* ── QUIZ ── */}
       {screen === 'quiz' && (
         <div className="animate-scaleIn px-4 py-8 max-w-2xl mx-auto">
+
+          {/* Back button */}
+          <button
+            onClick={handleBack}
+            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-200 mb-4 group"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="group-hover:-translate-x-1 transition-transform duration-200">
+              <path d="M11 14l-5-5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="text-sm font-medium">Voltar</span>
+          </button>
 
           {/* Progress bar */}
           <div className="mb-6">
