@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import './index.css'
 
-const CHECKOUT_URL = 'https://pay.hotmart.com/X106313372V?checkoutMode=10'
+const CHECKOUT_URL = 'https://ggcheckout.app/checkout/v5/7F0uplXKgxD3b1Y0y7D7'
 
 const QUIZ_QUESTIONS = [
   {
